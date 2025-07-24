@@ -1,1 +1,48 @@
+<!-- markdownlint-disable -->
 # capacitacion-pytest
+
+## Realizar contribuciones
+
+1. Hacer git clone del repositorio:
+
+```bash
+git clone https://github.com/santiagomgdev/capacitacion-pytest.git
+```
+
+2. Realizar modificaciones en rama development
+
+```bash
+git branch -a # Verificar que existe rama development
+git checkout development
+
+# Trabajar rama local para subirla a remota
+git checkout -b development
+
+# Realizar cambios
+git add .
+git commit -m "mensaje commit" 
+git push origin development
+```
+
+3. Subir cambios a development
+
+```bash
+git push -u origin development
+```
+
+## Sesión 1
+
+- Subir ejercicio en directorio de acuerdo a asignación -> test/Sesion 1/
+
+```txt
+/1 - Duber
+/2 - Carolina
+/3 - Christian
+/4 - Edward
+/5 - Rafa
+/6 - Andrés
+```
+
+## Sesión 2
+
+- Subir ejercicio en directorio -> test/Sesion 2/test/test_funcionalidad.py
