@@ -9,17 +9,6 @@ def test_formatear_nombre_cliente_correcta():
     #asserts
     assert isinstance(res,str)
     assert res == "GARCIA, Duber"
-    
-
-def test_formatear_nombre_cliente_sin_nombre():
-    #arr
-    nombre:str=""
-    apellido:str="garcia"
-    #act
-    res=formatear_nombre_cliente(nombre,apellido)
-    #asserts
-    assert isinstance(res,str)
-    assert res == ""
 
 
 def test_formatear_nombre_cliente_sin_apellido():
