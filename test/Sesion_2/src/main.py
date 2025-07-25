@@ -57,6 +57,6 @@ class AsociadosAtlantis:
     
     def obtener_estadisticas(self) -> dict:
         return {
-            "total_asociados": len(self.clients),
-            "asociados_activos": sum(1 for c in self.clients.values() if c["active"]),
+            "total_asociados": len(self.asociados),
+            "asociados_activos": sum(1 for c in self.asociados.values() if c["activo"]),
         }
