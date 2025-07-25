@@ -2,7 +2,7 @@ import pytest
 
 from src.main import AsociadosAtlantis
 
-def test_estadisticas_todos_activos():
+def test_obtener_estadisticas_todos_activos():
     asociado = AsociadosAtlantis()
     asociado.add_asociado(1, "Ana", "ana@example.com", activo=True)
     asociado.add_asociado(2, "Luis", "luis@example.com", activo=True)
@@ -26,7 +26,7 @@ def test_obtener_estadisticas_activos_e_inactivos():
     assert resultado["asociados_activos"] == 2
 
 
-def test_estadisticas_todos_inactivos():
+def test_obtener_estadisticas_todos_inactivos():
     asociado = AsociadosAtlantis()
     asociado.add_asociado(1, "Pedro", "pedro@example.com", activo=False)
     asociado.add_asociado(2, "Laura", "laura@example.com", activo=False)
@@ -37,7 +37,7 @@ def test_estadisticas_todos_inactivos():
     assert resultado["asociados_activos"] == 0
 
 
-def test_estadisticas_sin_asociados():
+def test_obtener_estadisticas_sin_asociados():
     asociado = AsociadosAtlantis()
 
     resultado = asociado.obtener_estadisticas()
