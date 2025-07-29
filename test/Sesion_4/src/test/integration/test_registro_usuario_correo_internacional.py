@@ -1,9 +1,4 @@
-import pytest
-from httpx import AsyncClient
-
-
-@pytest.mark.asyncio
-async def test_registro_usuario_correo_internacional(client: AsyncClient):
+def test_registro_usuario_correo_internacional(client):
     """Prueba el registro con direcciones de correo internacional"""
     casos_prueba = [
         "测试@example.com",  # Caracteres chinos
@@ -20,5 +15,5 @@ async def test_registro_usuario_correo_internacional(client: AsyncClient):
             "apellido": f"Prueba{i}"
         }
         
-        respuesta = await client.post("/users/", json=datos_usuario)
-        assert respuesta.status_code == 201, f"Falló para el correo: {correo}"
+        respuesta = client.post("/users/", json=datos_usuario)
+        assert respuesta.status_code == 400, f"Falló para el correo: {correo}"

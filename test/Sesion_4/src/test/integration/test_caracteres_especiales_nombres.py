@@ -1,9 +1,4 @@
-import pytest
-from httpx import AsyncClient
-
-
-@pytest.mark.asyncio
-async def test_caracteres_especiales_nombres(client: AsyncClient):
+def test_caracteres_especiales_nombres(client):
     """Prueba la creación de usuario con caracteres especiales en nombres"""
     casos_prueba = [
         {"nombre": "José", "apellido": "García"},  # Acentos en español
@@ -22,7 +17,7 @@ async def test_caracteres_especiales_nombres(client: AsyncClient):
             **nombres
         }
         
-        respuesta = await client.post("/users/", json=datos_usuario)
+        respuesta = client.post("/users/", json=datos_usuario)
         assert respuesta.status_code == 201, f"Falló para nombres: {nombres}"
         
         usuario_creado = respuesta.json()
@@ -32,4 +27,4 @@ async def test_caracteres_especiales_nombres(client: AsyncClient):
     
     # Limpieza
     for usuario_id in ids_usuarios:
-        await client.delete(f"/users/{usuario_id}")
+        client.delete(f"/users/{usuario_id}")

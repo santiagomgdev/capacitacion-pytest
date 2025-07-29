@@ -1,12 +1,7 @@
-import pytest
-from httpx import AsyncClient
-
-
-@pytest.mark.asyncio
-async def test_validacion_reglas_negocio(client: AsyncClient):
+def test_validacion_reglas_negocio(client):
     """Prueba la validación de varias reglas de negocio"""
     # Prueba nombre vacío
-    respuesta = await client.post("/users/", json={
+    respuesta = client.post("/users/", json={
         "correo": "test@example.com",
         "contrasena": "SecurePass123!",
         "nombre": "",
@@ -15,7 +10,7 @@ async def test_validacion_reglas_negocio(client: AsyncClient):
     assert respuesta.status_code == 422  # Error de validación Pydantic
     
     # Prueba apellido vacío
-    respuesta = await client.post("/users/", json={
+    respuesta = client.post("/users/", json={
         "correo": "test@example.com",
         "contrasena": "SecurePass123!",
         "nombre": "Prueba",
@@ -33,7 +28,7 @@ async def test_validacion_reglas_negocio(client: AsyncClient):
     ]
     
     for correo in emails_invalidos:
-        respuesta = await client.post("/users/", json={
+        respuesta = client.post("/users/", json={
             "correo": correo,
             "contrasena": "SecurePass123!",
             "nombre": "Prueba",

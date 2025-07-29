@@ -11,7 +11,7 @@ class UsuarioService:
         usuario_existente = await self.repositorio_usuario.get_by_email(correo.lower().strip())
         if usuario_existente:
             raise UsuarioExistenteException(f"El usuario con correo {correo} ya existe")
-        usuario = Usuario.create_new(correo, contrasena, nombre, apellido)
+        usuario = Usuario.crear_nuevo(correo, contrasena, nombre, apellido)
         return await self.repositorio_usuario.create(usuario)
 
     async def obtener_usuario_por_id(self, usuario_id: int) -> Usuario:

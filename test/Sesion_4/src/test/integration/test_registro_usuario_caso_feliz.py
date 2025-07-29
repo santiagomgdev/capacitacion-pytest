@@ -1,8 +1,4 @@
-import pytest
-from httpx import AsyncClient
-
-@pytest.mark.asyncio
-async def test_registro_usuario_caso_feliz(client: AsyncClient):
+def test_registro_usuario_caso_feliz(client):
     datos_usuario = {
         "correo": "john.doe@example.com",
         "contrasena": "SecurePass123!",
@@ -10,7 +6,7 @@ async def test_registro_usuario_caso_feliz(client: AsyncClient):
         "apellido": "Doe"
     }
     
-    respuesta = await client.post("/users/", json=datos_usuario)
+    respuesta = client.post("/users/", json=datos_usuario)
     
     assert respuesta.status_code == 201
     datos = respuesta.json()

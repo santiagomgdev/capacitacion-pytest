@@ -25,7 +25,7 @@ async def create_user(
             correo=user.correo,
             nombre=user.nombre,
             apellido=user.apellido,
-            is_active=user.is_active,
+            activo=user.activo,
             created_at=user.created_at,
             updated_at=user.updated_at
         )
@@ -46,7 +46,7 @@ async def get_users(
             correo=user.correo,
             nombre=user.nombre,
             apellido=user.apellido,
-            is_active=user.is_active,
+            activo=user.activo,
             created_at=user.created_at,
             updated_at=user.updated_at
         ) for user in users
@@ -65,7 +65,7 @@ async def get_user(
             correo=user.correo,
             nombre=user.nombre,
             apellido=user.apellido,
-            is_active=user.is_active,
+            activo=user.activo,
             created_at=user.created_at,
             updated_at=user.updated_at
         )
@@ -81,19 +81,19 @@ async def update_user(
     user_service = get_user_service(session)
     try:
         user = await user_service.actualizar_usuario(
-            user_id=user_id,
+            usuario_id=user_id,
             correo=user_data.correo,
             contrasena=user_data.contrasena,
             nombre=user_data.nombre,
             apellido=user_data.apellido,
-            is_active=user_data.is_active
+            activo=user_data.activo
         )
         return UsuarioResponse(
             id=user.id,
             correo=user.correo,
             nombre=user.nombre,
             apellido=user.apellido,
-            is_active=user.is_active,
+            activo=user.activo,
             created_at=user.created_at,
             updated_at=user.updated_at
         )

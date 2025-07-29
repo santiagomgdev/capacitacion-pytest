@@ -1,9 +1,8 @@
 import pytest
-from httpx import AsyncClient
 
 
 @pytest.mark.asyncio
-async def test_registros_concurrentes_usuario(client: AsyncClient):
+async def test_registros_concurrentes_usuario(client):
     """Prueba registros concurrentes de usuario para detectar condiciones de carrera"""
     import asyncio
     
@@ -14,7 +13,7 @@ async def test_registros_concurrentes_usuario(client: AsyncClient):
             "nombre": f"Usuario{sufijo_email}",
             "apellido": "Prueba"
         }
-        return await client.post("/users/", json=datos_usuario)
+        return client.post("/users/", json=datos_usuario)
     
     # Crear varios usuarios concurrentemente
     tareas = [crear_usuario(i) for i in range(5)]
@@ -30,4 +29,4 @@ async def test_registros_concurrentes_usuario(client: AsyncClient):
     
     # Limpieza
     for usuario_id in ids_usuarios:
-        await client.delete(f"/users/{usuario_id}")
+        client.delete(f"/users/{usuario_id}")

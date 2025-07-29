@@ -1,9 +1,4 @@
-import pytest
-from httpx import AsyncClient
-
-
-@pytest.mark.asyncio
-async def test_limites_caracteres_correo(client: AsyncClient):
+def test_limites_caracteres_correo(client):
     """Prueba la validación de correo con límites de caracteres"""
     # Prueba longitud máxima de correo (254 caracteres en total)
     parte_local_larga = "a" * 60  # 60 caracteres para la parte local
@@ -17,7 +12,7 @@ async def test_limites_caracteres_correo(client: AsyncClient):
         "apellido": "Usuario"
     }
     
-    respuesta = await client.post("/users/", json=datos_usuario)
+    respuesta = client.post("/users/", json=datos_usuario)
     # Debe funcionar si el correo está dentro de los límites
     if len(correo_largo_valido) <= 254:
         assert respuesta.status_code == 201
