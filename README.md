@@ -46,3 +46,29 @@ git push -u origin development
 ## Sesión 2
 
 - Subir ejercicio en directorio -> test/Sesion 2/test/test_funcionalidad.py
+
+## Sesión 4
+
+## Instalación
+
+1. Crear un entorno virtual:
+    python -m venv venv
+    source venv/bin/activate  # En Windows: venv\Scripts\activate
+
+2. Instalar dependencias:
+    pip install -r requirements.txt
+
+## Ejecución de pruebas
+
+1. Ejecutar todas las pruebas de integración:
+    pytest src/tests/test_integration.py -v
+
+2. Ejecutar una clase de prueba específica:
+    pytest src/tests/test_integration.py::TestUserCRUDIntegration -v
+
+3. Ejecutar con cobertura:
+    pip install pytest-cov
+    pytest src/tests/test_integration.py --cov=. --cov-report=html
+
+4. Ejecutar pruebas con salida detallada:
+    pytest src/tests/test_integration.py -v -s
