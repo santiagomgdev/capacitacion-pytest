@@ -72,3 +72,11 @@ git push -u origin development
 
 4. Ejecutar pruebas con salida detallada:
     pytest src/tests/test_integration.py -v -s
+
+## Referencias
+
+- <https://www.youtube.com/watch?v=EgpLj86ZHFQ>
+- <https://www.browserstack.com/guide/playwright-vs-selenium>
+- <https://stackoverflow.com/questions/652292/what-is-unit-testing-and-how-do-you-do-it>
+- <https://stackoverflow.com/questions/652292/what-is-unit-testing-and-how-do-you-do-it>
+- <https://docs.pytest.org/en/stable/explanation/anatomy.html>
